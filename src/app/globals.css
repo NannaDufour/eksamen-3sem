@@ -5,66 +5,86 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  :root {
-    /* ==== Colors ==== */
-    /* PRIMITIVES */
-    --color-pink-200: oklch(65.3% 0.242 9.3);
-    --color-pink-100: oklch(64.2% 0.237 5.4);
-    --color-purple: oklch(55.9% 0.235 329.1);
-    --color-white: oklch(100% 0 0);
-    --color-black: oklch(0% 0 0);
-    --color-grey-100: oklch(82% 0 0);
-    --color-grey-200: oklch(64.3% 0 0);
+  /* ==== Colors ==== */
+  /* PRIMITIVES */
+  --color-pink-200: oklch(65.3% 0.242 9.3);
+  --color-pink-100: oklch(64.2% 0.237 5.4);
+  --color-purple: oklch(55.9% 0.235 329.1);
+  --color-white: oklch(100% 0 0);
+  --color-black: oklch(0% 0 0);
+  --color-grey-100: oklch(82% 0 0);
+  --color-grey-200: oklch(64.3% 0 0);
 
-    /* TOKENS */
-    --color-active-nav: var(--color-pink-200);
-    --color-primary-text: var(--color-grey-100);
-    --color-secondary-text: var(--color-white);
-    --color-tertiary-text: var(--color-grey-200);
-    --color-accent: var(--color-pink-100);
-    --color-background: var(--color-black);
-    --color-btn-gradient-start: var(--color-pink-200);
-    --color-btn-gradient-end: var(--color-purple);
-    --color-btn-stroke: var(--color-white);
+  /* ==== Spacing ==== */
+  /* PRIMITIVES */
+  --space-0: 0;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+  --space-11: 10rem;
+}
 
-    /* ==== Spacing ==== */
-    /* PRIMITIVES */
-    --space-0: 0;
-    --space-1: 0.25rem;
-    --space-2: 0.5rem;
-    --space-3: 0.75rem;
-    --space-4: 1rem;
-    --space-5: 1.5rem;
-    --space-6: 2rem;
-    --space-7: 3rem;
-    --space-8: 4rem;
-    --space-9: 6rem;
-    --space-10: 8rem;
-    --space-11: 10rem;
+@theme {
+  /* ==== Colors ==== */
+  --color-active-nav: var(--color-pink-200);
+  --color-primary-text: var(--color-grey-100);
+  --color-secondary-text: var(--color-white);
+  --color-tertiary-text: var(--color-grey-200);
+  --color-accent: var(--color-pink-100);
+  --color-background: var(--color-black);
+  --color-btn-gradient-start: var(--color-pink-200);
+  --color-btn-gradient-end: var(--color-purple);
+  --color-btn-stroke: var(--color-white);
 
-    /* TOKENS */
-    --space-inline-tight: var(--space-2);
-    --space-s: var(--space-3);
-    --space-m: var(--space-5);
-    --space-card-padding: var(--space-5);
-    --space-button-padding-block: var(--space-3);
-    --space-button-padding-inline: var(--space-6);
-    --space-section: var(--space-9);
-    --space-gutter: var(--space-5);
+  /* ==== Spacing ==== */
+  --space-inline-tight: var(--space-2);
+  --space-s: var(--space-3);
+  --space-m: var(--space-5);
+  --space-card-padding: var(--space-5);
+  --space-button-padding-block: var(--space-3);
+  --space-button-padding-inline: var(--space-6);
+  --space-section: var(--space-9);
+  --space-gutter: var(--space-5);
 
-    /* ==== Typography ==== */
-    --text-size-xs: 0.9rem;
-    --text-size-s: 1rem;
-    --text-size-m: 1.5rem;
-    --text-size-l: 2rem;
-    --text-size-xl: 2.5rem;
-    --text-size-xxl: 2.8rem;
-    --text-size-xxxl: 3rem;
+  /* ==== Typography ==== */
+  --text-size-xs: 0.9rem;
+  --text-size-s: 1rem;
+  --text-size-m: 1.5rem;
+  --text-size-l: 2rem;
+  --text-size-xl: 2.5rem;
+  --text-size-xxl: 2.8rem;
+  --text-size-xxxl: 3rem;
 
-    --text-light: 300;
-    --text-medium: 400;
-    --text-semibold: 500;
-    --text-bold: 700;
+  --text-light: 300;
+  --text-medium: 400;
+  --text-semibold: 500;
+  --text-bold: 700;
+}
+
+body {
+  display: grid;
+  grid-template-columns:
+    [full-start] minmax(1rem, 1fr) [content] minmax(0, 1200px)
+    minmax(1rem, 1fr) [full-end];
+
+  header,
+  footer,
+  main,
+  section,
+  figure {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: full;
+    > :not(&) {
+      grid-column: content;
+    }
   }
 
   /* ==== CSS fra ShadCN ==== */
@@ -178,6 +198,12 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+figure::before {
+  clip-path: polygon(100% 0, 0 100%, 0 0);
+}
+
+figure::after {
+  clip-path: polygon(0 100%, 100% 0, 100% 100%);
 }
 
 @layer base {
