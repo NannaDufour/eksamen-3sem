@@ -3,11 +3,11 @@ import HeroBtn from "./HeroBtn";
 
 const Hero = () => {
   return (
-    <section className="grid bg-black">
+    <section className="full-bleed grid bg-black">
       <Image
-        className="col-start-1 row-start-1 w-full h-[75vh] object-cover opacity-35"
+        className="col-start-1 row-start-1 w-full object-cover opacity-35"
         src="/bg/header_bg_2.jpg"
-        width={12000}
+        width={1200}
         height={800}
         alt="photoOfClub"
       />
