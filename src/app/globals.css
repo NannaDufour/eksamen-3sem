@@ -86,10 +86,11 @@ body {
       grid-column: content;
     }
   }
+}
 
-  /* ==== CSS fra ShadCN ==== */
+/* ==== CSS fra ShadCN ==== */
 
-  /* --background: oklch(1 0 0);
+/* --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -216,5 +217,14 @@ figure::after {
   html {
     @apply font-sans;
   }*/
+figure::before {
+  clip-path: polygon(100% 0, 0 100%, 0 0);
+}
 
-};
+figure::after {
+  clip-path: polygon(0 100%, 100% 0, 100% 100%);
+}
+
+.full-bleed > * {
+  grid-column: full;
+}
