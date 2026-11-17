@@ -2,18 +2,26 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { IoMenu, IoCloseSharp } from "react-icons/io5";
 
 const NavBar = () => {
   const pathname = usePathname();
 
+  const navItems = [
+    { href: "/", navLabel: "HOME" },
+    { href: "/events", navLabel: "EVENTS" },
+    { href: "/book-table", navLabel: "BOOK TABLE" },
+    { href: "/contact", navLabel: "CONTACT US" },
+  ];
+
   const linkClass = (href: string) => {
     if (href === "/") {
       return href === pathname
-        ? "text-active-nav before:content-[''] relative before:absolute before:bg-linear-to-r before:from-background before:via-active-nav before:to-background before:w-full before:h-0.5 before:bottom-[-1em] before:left-0"
+        ? "text-active-nav before:content-[''] relative before:absolute before:bg-linear-to-r before:from-background before:via-active-nav before:to-background before:w-full before:h-0.5 md:before:bottom-[-1em] max-md:before:bottom-[-0.5em] before:left-0"
         : "text-secondary-text";
     } else {
       return pathname.startsWith(href)
-        ? "text-active-nav before:content-[''] relative before:absolute before:bg-linear-to-r before:from-background before:via-active-nav before:to-background before:w-full before:h-0.5 before:bottom-[-1em] before:left-0"
+        ? "text-active-nav before:content-[''] relative before:absolute before:bg-linear-to-r before:from-background before:via-active-nav before:to-background before:w-full before:h-0.5 md:before:bottom-[-1em] max-md:before:bottom-[-0.5em] before:left-0"
         : "text-secondary-text";
     }
   };
@@ -23,39 +31,37 @@ const NavBar = () => {
       <figure className="relative before:content-[''] before:absolute before:bg-active-nav before:w-7 before:h-7 before:top-0 before:left-0"></figure>
       <nav className="flex items-center justify-between p-4">
         <Image src="/logo.png" alt="Logo" width={150} height={150} />
-        <ul className="flex text-secondary-text gap-7 font-semibold">
-          <li>
-            <Link
-              href="/"
-              className={` ${linkClass("/")} hover:text-active-nav hover:before:content-[''] relative hover:before:absolute hover:before:bg-linear-to-r hover:before:from-background hover:before:via-active-nav hover:before:to-background hover:before:w-full hover:before:h-0.5 hover:before:bottom-[-1em] hover:before:left-0`}
-            >
-              HOME
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/events"
-              className={` ${linkClass("/events")} hover:text-active-nav over:before:content-[''] relative hover:before:absolute hover:before:bg-linear-to-r hover:before:from-background hover:before:via-active-nav hover:before:to-background hover:before:w-full hover:before:h-0.5 hover:before:bottom-[-1em] hover:before:left-0`}
-            >
-              EVENTS
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/book-table"
-              className={` ${linkClass("/book-table")} hover:text-active-nav over:before:content-[''] relative hover:before:absolute hover:before:bg-linear-to-r hover:before:from-background hover:before:via-active-nav hover:before:to-background hover:before:w-full hover:before:h-0.5 hover:before:bottom-[-1em] hover:before:left-0`}
-            >
-              BOOK TABLE
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/contact"
-              className={` ${linkClass("/contact")} hover:text-active-nav over:before:content-[''] relative hover:before:absolute hover:before:bg-linear-to-r hover:before:from-background hover:before:via-active-nav hover:before:to-background hover:before:w-full hover:before:h-0.5 hover:before:bottom-[-1em] hover:before:left-0`}
-            >
-              CONTACT US
-            </Link>
-          </li>
+
+        <button type="button" popoverTarget="burgerMenuPopover" className="max-md:block md:hidden">
+          <IoMenu className="text-secondary-text w-10 h-10" />
+        </button>
+
+        <div id="burgerMenuPopover" popover="manual" className="bg-background/90 h-full w-full">
+          <button popoverTarget="burgerMenuPopover" popoverTargetAction="hide" className="block ml-auto">
+            <IoCloseSharp className="text-secondary-text w-15 h-15 p-2" />
+          </button>
+          <ul className="text-secondary-text font-semibold place-items-center mt-50">
+            {navItems.map((navItem) => (
+              <li key={navItem.navLabel} className="mb-15">
+                <Link href={navItem.href} className={` ${linkClass(navItem.href)} text-size-l`}>
+                  {navItem.navLabel}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <ul className="max-md:hidden md:flex text-secondary-text gap-7 font-semibold">
+          {navItems.map((navItem) => (
+            <li key={navItem.navLabel}>
+              <Link
+                href={navItem.href}
+                className={` ${linkClass(navItem.href)} hover:text-active-nav hover:before:content-[''] relative hover:before:absolute hover:before:bg-linear-to-r hover:before:from-background hover:before:via-active-nav hover:before:to-background hover:before:w-full hover:before:h-0.5 hover:before:bottom-[-1em] hover:before:left-0`}
+              >
+                {navItem.navLabel}
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
       <figure className="relative after:content-[''] after:absolute after:bg-active-nav after:w-7 after:h-7 after:bottom-0 after:right-0"></figure>

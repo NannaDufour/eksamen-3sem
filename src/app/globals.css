@@ -217,6 +217,7 @@ figure::after {
   html {
     @apply font-sans;
   }*/
+
 figure::before {
   clip-path: polygon(100% 0, 0 100%, 0 0);
 }
