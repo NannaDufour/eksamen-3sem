@@ -1,4 +1,5 @@
 import Image from "next/image";
+import HeroBtn from "./HeroBtn";
 
 const Hero = () => {
   return (
@@ -28,6 +29,8 @@ const Hero = () => {
           height={400}
           alt="undelineOfPhoto"
         />
+
+        <HeroBtn />
       </div>
     </section>
   );
