@@ -1,13 +1,13 @@
 import NavBar from "@/components/NavBar";
 import Hero from "@/components/Hero";
-import SectionTitles from "@/components/SectionTitles";
+import WelcomeSection from "@/components/WelcomeSection";
 
 export default function Home() {
   return (
     <>
       <Hero />
       <NavBar />
-      <SectionTitles title="WELCOME IN NIGHTCLUB" />
+      <WelcomeSection />
     </>
   );
 }
