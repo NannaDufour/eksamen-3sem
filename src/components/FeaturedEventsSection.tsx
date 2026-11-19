@@ -26,7 +26,7 @@ const FeaturedEvents = async () => {
   return featuredEvents.map((featuredEvent: NightclubEvent) => (
     <article key={featuredEvent.id}>
       <Image src={`http://localhost:4000${featuredEvent.asset.url}`} alt={featuredEvent.asset.alt} width={featuredEvent.asset.width} height={featuredEvent.asset.height} className="w-full" />
-      <div className="bg-event-information py-2 px-4 flex place-content-between">
+      <div className="bg-event-information py-2 px-4 md:flex place-content-between">
         <p className="text-secondary-text">{featuredEvent.title}</p>
         <p className="text-secondary-text ">
           {new Date(featuredEvent.date).toLocaleDateString("en-GB", { month: "long", day: "numeric" })} · {new Date(featuredEvent.date).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })}
@@ -40,7 +40,7 @@ const FeaturedEventsSection = () => {
   return (
     <section className="bg-background relative before:bg-[url(/bg/slider_bg_overlay.png)] before:content-[''] before:absolute before:opacity-40 overflow-hidden isolate before:inset-0 before:-z-1">
       <SectionTitles title="FEATURED EVENTS" />
-      <div className="grid grid-cols-2 gap-4">
+      <div className="md:grid max-md:flex flex-col grid-cols-2 gap-4">
         <FeaturedEvents />
       </div>
     </section>
