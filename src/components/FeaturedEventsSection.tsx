@@ -27,9 +27,9 @@ const FeaturedEvents = async () => {
 
   return featuredEvents.map((featuredEvent: NightclubEvent) => (
     <article key={featuredEvent.id} className="group">
-      <div className="relative">
-        <figure className="group-hover:absolute group-hover:top-0 group-hover:left-0 group-hover:w-20 group-hover:h-20 group-hover:before:content-[''] group-hover:before:absolute group-hover:before:inset-0 group-hover:before:bg-active-nav group-hover:before:z-10"></figure>
-        <div className="grid grid-cols-1 col-start-1 row-start-1 group-hover:before:bg-background group-hover:before:content-[''] group-hover:before:absolute group-hover:before:w-full group-hover:before:opacity-50 group-hover:before:inset-0 ">
+      <div className="relative overflow-hidden">
+        <figure className="group-hover:absolute group-hover:top-0 group-hover:left-0 group-hover:w-20 group-hover:h-20 group-hover:before:content-[''] group-hover:before:absolute group-hover:before:inset-0 group-hover:before:bg-active-nav group-hover:before:z-10 opacity-0 group-hover:opacity-100 -translate-y-10 transition-all duration-300 ease-in group-hover:translate-y-0 z-3"></figure>
+        <div className="grid grid-cols-1 col-start-1 row-start-1 group-hover:before:bg-background group-hover:before:content-[''] group-hover:before:absolute group-hover:before:w-full group-hover:before:opacity-50 group-hover:before:inset-0">
           <Image
             src={`http://localhost:4000${featuredEvent.asset.url}`}
             alt={featuredEvent.asset.alt}
@@ -37,17 +37,17 @@ const FeaturedEvents = async () => {
             height={featuredEvent.asset.height}
             className="w-full border-y-2 group-hover:border-active-nav col-start-1 row-start-1"
           />
-          <Button asChild variant="bookNow" size="bookNow" className="col-start-1 row-start-1 place-self-center">
+          <Button asChild variant="bookNow" size="bookNow" className="col-start-1 row-start-1 place-self-center opacity-0 group-hover:opacity-100 -translate-y-10 transition-all duration-300 ease-in group-hover:translate-y-0">
             <Link href="/book-table">BOOK NOW</Link>
           </Button>
-          <div className="col-start-1 row-start-1 place-self-end  z-2 bg-background py-4 px-3 hidden group-hover:block">
+          <div className="col-start-1 row-start-1 place-self-end z-2 bg-background py-4 px-3 opacity-0 group-hover:opacity-100 translate-y-10 transition-all duration-300 ease-in group-hover:translate-y-0">
             <p className="font-semibold text-secondary-text pb-2 text-xl">{featuredEvent.title}</p>
             <p className="font-light text-primary-text pr-8 text-s">{featuredEvent.excerpt}</p>
+            <figure className="group-hover:absolute group-hover:bottom-0 group-hover:right-0 group-hover:w-20 group-hover:h-20 after:content-[''] group-hover:after:absolute group-hover:after:inset-0 group-hover:after:bg-active-nav z-3"></figure>
           </div>
         </div>
-        <figure className="group-hover:absolute group-hover:bottom-0 group-hover:right-0 group-hover:w-20 group-hover:h-20 after:content-[''] group-hover:after:absolute group-hover:after:inset-0 group-hover:after:bg-active-nav z-3"></figure>
       </div>
-      <div className="bg-event-information py-2 px-4 md:flex place-content-between">
+      <div className="bg-event-information py-2 px-4 md:flex place-content-between z-10 relative">
         <p className="text-secondary-text">{featuredEvent.title}</p>
         <p className="text-secondary-text ">
           {new Date(featuredEvent.date).toLocaleDateString("en-US", { month: "long", day: "numeric" })} · {new Date(featuredEvent.date).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })}
