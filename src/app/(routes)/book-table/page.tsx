@@ -1,5 +1,11 @@
 import NavBar from "@/components/NavBar";
+import SubpageHero from "@/components/SubpageHero";
 
 export default function Home() {
-  return <NavBar />;
+  return (
+    <>
+      <NavBar />
+      <SubpageHero title="Book Table" />
+    </>
+  );
 }
