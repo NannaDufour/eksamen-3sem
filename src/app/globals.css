@@ -8,6 +8,7 @@
   /* PRIMITIVES */
   --color-pink-200: oklch(65.3% 0.242 9.3);
   --color-pink-100: oklch(64.2% 0.237 5.4);
+  --color-pink-300: oklch(53.2% 0.197 9.4);
   --color-purple: oklch(55.9% 0.235 329.1);
   --color-white: oklch(100% 0 0);
   --color-black: oklch(0% 0 0);
@@ -41,6 +42,7 @@
   --color-btn-gradient-start: var(--color-pink-100);
   --color-btn-gradient-end: var(--color-purple);
   --color-btn-stroke: var(--color-white);
+  --color-event-information: var(--color-pink-300);
 
   /* ==== Spacing ==== */
   --space-inline-tight: var(--space-2);
