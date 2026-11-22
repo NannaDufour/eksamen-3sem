@@ -4,6 +4,7 @@ import SectionSubTitle from "@/components/SectionSubTitle";
 import TableOverview from "@/components/TableOverview";
 import BookATableForm from "@/components/BookATableForm";
 import Form from "next/form";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
@@ -14,6 +15,9 @@ export default function Home() {
         <TableOverview />
         <SectionSubTitle title="BOOK A TABLE" />
         <BookATableForm />
+        <Button variant="formButton" size="formButton">
+          Reserve
+        </Button>
       </Form>
     </section>
   );

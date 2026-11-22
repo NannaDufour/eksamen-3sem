@@ -18,7 +18,7 @@ const BookATableForm = () => {
             <option value=""></option>
             <option value=""></option>
           </select>
-          <IoIosArrowDown className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 text-secondary-text w-14 h-14 pr-7" />
+          <IoIosArrowDown className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 text-secondary-text w-10 h-10 pr-3" />
         </div>
         <FormInput type="phone" name="phone" placeholder="Your Contact Number" />
       </div>
