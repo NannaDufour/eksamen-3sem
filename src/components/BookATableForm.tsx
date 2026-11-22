@@ -5,7 +5,7 @@ import { IoIosArrowDown } from "react-icons/io";
 const BookATableForm = () => {
   return (
     <div>
-      <div className="grid grid-cols-2 gap-5">
+      <div className="md:grid md:grid-cols-2 flex flex-col gap-5">
         <FormInput type="text" name="name" placeholder="Your Name" />
         <FormInput type="email" name="email" placeholder="Your Email" />
         <FormInput type="number" name="table" placeholder="Table Number" />

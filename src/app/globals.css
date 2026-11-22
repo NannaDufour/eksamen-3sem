@@ -224,3 +224,7 @@ figure::after {
 .full-bleed > * {
   grid-column: full;
 }
+
+.swipe-text {
+  text-box: trim-start cap alphabetic;
+}

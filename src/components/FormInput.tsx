@@ -5,7 +5,7 @@ type InputType = {
 };
 
 const FormInput = ({ type, name, placeholder }: InputType) => {
-  return <input type={type} name={name} placeholder={placeholder} className="placeholder:text-secondary-text text-secondary-text border px-3 py-6" />;
+  return <input type={type} name={name} placeholder={placeholder} className="placeholder:text-secondary-text text-secondary-text border px-3 py-6 max-md:w-full" />;
 };
 
 export default FormInput;
