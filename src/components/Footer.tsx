@@ -5,15 +5,15 @@ import SocialMediaBar from "./SocialMediaBar";
 
 const Footer = () => {
   return (
-    <section className="full-bleed grid bg-black w-full overflow-hidden">
+    <footer className="grid bg-black w-full overflow-hidden p-30">
       <Image
-        className="col-start-1 row-start-1 opacity-10 w-full scale-130"
+        className="col-start-1 row-start-1 opacity-10 w-full scale-150"
         src="/bg/footerbg.jpg"
-        width={1200}
+        width={1400}
         height={600}
         alt="photoOfGraphicClub"
       />
-      <div className="col-[content]! row-start-1 grid grid-cols-12 gap-4 content-center">
+      <div className="row-start-1 grid grid-cols-12 gap-4">
         <Image
           className="col-span-3"
           src="/Logo.png"
@@ -78,7 +78,7 @@ const Footer = () => {
           Copyright © NightClub
         </h4>
       </div>
-    </section>
+    </footer>
   );
 };
 
