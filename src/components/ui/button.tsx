@@ -8,16 +8,11 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default:
-          "bg-background/30 text-secondary-text border-2 border-white/30 p-6 hover:bg-primary/80 w-[10em]",
-        outline:
-          "border-border bg-background hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50",
-        secondary:
-          "bg-linear-160 from-btn-gradient-start to-btn-gradient-end text-secondary-text p-6 w-[10em] hover:bg-[color-mix(in_oklch,var(--secondary),var(--foreground)_5%)] aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
+        default: "bg-background/30 text-secondary-text border-2 border-white/30 p-6 hover:bg-primary/80 w-[10em]",
+        bookNow: "bg-active-nav text-secondary-text z-10 opacity-0 group-hover:opacity-100",
+        secondary: "bg-linear-160 from-btn-gradient-start to-btn-gradient-end text-secondary-text p-6 w-[10em] hover:bg-[color-mix(in_oklch,var(--secondary),var(--foreground)_5%)] aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
+        formButton: "border-y-2 border-x-0 border-white text-secondary-text justify-self-end",
         carousel: "bg-black/30 border-2 border-white p-2 text-white",
-        destructive:
-          "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
-        bookNow: "bg-active-nav text-secondary-text z-10 opacity-0 group-hover:opacity-100"
     
       },
       size: {
@@ -30,6 +25,7 @@ const buttonVariants = cva(
         "icon-sm": "size-7 rounded-[min(var(--radius-md),12px)] in-data-[slot=button-group]:rounded-lg",
         "icon-lg": "size-9",
         bookNow: "px-7 py-3",
+        formButton: "py-3 px-10 my-5",
       },
     },
     defaultVariants: {
