@@ -10,8 +10,8 @@ export default function Home() {
       <Hero />
       <NavBar />
       <WelcomeSection />
-      <GallerySection />
       <FeaturedEventsSection />
+      <GallerySection />
     </>
   );
 }
