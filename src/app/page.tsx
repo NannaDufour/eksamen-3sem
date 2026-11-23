@@ -3,15 +3,19 @@ import Hero from "@/components/Hero";
 import WelcomeSection from "@/components/WelcomeSection";
 import GallerySection from "@/components/GallerySection";
 import FeaturedEventsSection from "@/components/FeaturedEventsSection";
+import { Suspense } from "react";
+import FallbackAnimation from "@/components/FallbackAnimation";
 
 export default function Home() {
   return (
     <>
-      <Hero />
-      <NavBar />
-      <WelcomeSection />
-      <FeaturedEventsSection />
-      <GallerySection />
+      <Suspense fallback={<FallbackAnimation />}>
+        <Hero />
+        <NavBar />
+        <WelcomeSection />
+        <FeaturedEventsSection />
+        <GallerySection />
+      </Suspense>
     </>
   );
 }
