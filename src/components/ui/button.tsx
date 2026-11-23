@@ -8,21 +8,27 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-background/30 text-secondary-text border-2 border-white/30 p-6 hover:bg-primary/80 w-[10em]",
-        bookNow: "bg-active-nav text-secondary-text z-10 opacity-0 group-hover:opacity-100",
-        secondary: "bg-linear-160 from-btn-gradient-start to-btn-gradient-end text-secondary-text p-6 w-[10em] hover:bg-[color-mix(in_oklch,var(--secondary),var(--foreground)_5%)] aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
-        formButton: "border-y-2 border-x-0 border-white text-secondary-text justify-self-end",
+        default:
+          "bg-background/30 text-secondary-text ring-inset ring-2 ring-white/30 p-6 w-[10em]",
+        bookNow:
+          "bg-active-nav text-secondary-text z-10 opacity-0 group-hover:opacity-100",
+        secondary:
+          "bg-linear-160 from-btn-gradient-start to-btn-gradient-end text-secondary-text p-6 transition w-[10em] hover:from-btn-gradient-end hover:to-btn-gradient-end  duration-1000 ease-in-out",
+        formButton:
+          "border-y-2 border-x-0 border-white text-secondary-text justify-self-end",
         carousel: "bg-black/30 border-2 border-white p-2 text-white",
-    
       },
       size: {
-        default: "h-8 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
+        default:
+          "h-8 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
         xs: "h-6 gap-1 rounded-[min(var(--radius-md),10px)] px-2 text-xs in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3",
         sm: "h-7 gap-1 rounded-[min(var(--radius-md),12px)] px-2.5 text-[0.8rem] in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3.5",
         lg: "h-9 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
         icon: "size-8",
-        "icon-xs": "size-6 rounded-[min(var(--radius-md),10px)] in-data-[slot=button-group]:rounded-lg [&_svg:not([class*='size-'])]:size-3",
-        "icon-sm": "size-7 rounded-[min(var(--radius-md),12px)] in-data-[slot=button-group]:rounded-lg",
+        "icon-xs":
+          "size-6 rounded-[min(var(--radius-md),10px)] in-data-[slot=button-group]:rounded-lg [&_svg:not([class*='size-'])]:size-3",
+        "icon-sm":
+          "size-7 rounded-[min(var(--radius-md),12px)] in-data-[slot=button-group]:rounded-lg",
         "icon-lg": "size-9",
         bookNow: "px-7 py-3",
         formButton: "py-3 px-10 my-5",
@@ -47,7 +53,15 @@ function Button({
   }) {
   const Comp = asChild ? Slot.Root : "button";
 
-  return <Comp data-slot="button" data-variant={variant} data-size={size} className={cn(buttonVariants({ variant, size, className }))} {...props} />;
+  return (
+    <Comp
+      data-slot="button"
+      data-variant={variant}
+      data-size={size}
+      className={cn(buttonVariants({ variant, size, className }))}
+      {...props}
+    />
+  );
 }
 
 export { Button, buttonVariants };
