@@ -38,7 +38,7 @@ const FeaturedEvents = async () => {
             className="w-full border-y-2 group-hover:border-active-nav col-start-1 row-start-1"
           />
           <Button asChild variant="bookNow" size="bookNow" className="col-start-1 row-start-1 place-self-center opacity-0 group-hover:opacity-100 -translate-y-10 transition-all duration-300 ease-in group-hover:translate-y-0">
-            <Link href="/book-table">BOOK NOW</Link>
+            <Link href={`/book-table?eventId=${featuredEvent.id}`}>BOOK NOW</Link>
           </Button>
           <div className="col-start-1 row-start-1 place-self-end z-2 bg-background py-4 px-3 opacity-0 group-hover:opacity-100 translate-y-10 transition-all duration-300 ease-in group-hover:translate-y-0">
             <p className="font-semibold text-secondary-text pb-2 text-xl">{featuredEvent.title}</p>
