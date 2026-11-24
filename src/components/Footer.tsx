@@ -18,6 +18,7 @@ const Footer = () => {
           height={200}
           width={200}
           alt="photoOfLogo"
+          loading="eager"
         />
 
         <FooterInfoText
