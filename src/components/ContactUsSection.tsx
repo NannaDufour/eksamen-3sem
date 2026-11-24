@@ -12,7 +12,7 @@ const ContactUsSection = () => {
             <FormInput type="text" name="name" placeholder="Your Name" />
             <FormInput type="email" name="email" placeholder="Your Email" />
           </div>
-          <FormTextArea placeholder="Your Comment" />
+          <FormTextArea name="comment" placeholder="Your Comment" />
           <Button variant="formButton" size="formButton">
             SEND
           </Button>
