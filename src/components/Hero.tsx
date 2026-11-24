@@ -2,17 +2,34 @@
 import Image from "next/image";
 import HeroBtn from "./HeroBtn";
 import { motion } from "motion/react";
+import { useEffect, useState } from "react";
+
+const imagesHero = [
+  { src: "/bg/header_bg_1.jpg" },
+  { src: "/bg/header_bg_2.jpg" },
+];
 
 const Hero = () => {
+  const [heroImg, setHeroImg] = useState<number | null>(null);
+
+  useEffect(() => {
+    const randomImg = Math.floor(Math.random() * imagesHero.length);
+    setHeroImg(randomImg);
+  });
+
   return (
     <section className="full-bleed grid bg-black overflow-hidden">
-      <Image
-        className="col-start-1 row-start-1 w-full h-[30em] md:h-full opacity-35 object-cover scale-130"
-        src="/bg/header_bg_2.jpg"
-        width={1200}
-        height={800}
-        alt="photoOfClub"
-      />
+      {heroImg !== null && (
+        <Image
+          className="col-start-1 row-start-1 w-full h-[30em] md:h-full opacity-35 object-cover scale-130"
+          src={imagesHero[heroImg].src}
+          width={1200}
+          height={800}
+          alt="photoOfClub"
+          loading="eager"
+        />
+      )}
+      ;
       <div className="col-start-1 row-start-1 gap-2 md:gap-3 z-10 flex flex-col items-center justify-center text-center">
         <motion.div
           className="w-full flex justify-center"
