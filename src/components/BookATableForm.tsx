@@ -29,12 +29,18 @@ const BookATableForm = ({ events, eventId, table }: EventsType) => {
       <div className="md:grid md:grid-cols-2 flex flex-col gap-5">
         <FormInput type="text" name="name" placeholder="Your Name" />
         <FormInput type="email" name="email" placeholder="Your Email" />
-        <FormInput type="number" placeholder="Table Number" value={table ?? ""} readOnly />
+        <FormInput
+          name="tablenumber"
+          type="number"
+          placeholder="Table Number"
+          value={table ?? ""}
+          readOnly
+        />
         <FormInput type="number" name="guests" placeholder="Number of Guest" />
         <EventSelect events={events} eventId={eventId} />
         <FormInput type="tel" name="phone" placeholder="Your Contact Number" />
       </div>
-      <FormTextArea placeholder="Your Comment" />
+      <FormTextArea name="comment" placeholder="Your Comment" />
     </div>
   );
 };
