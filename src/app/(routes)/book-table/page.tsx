@@ -5,6 +5,7 @@ import TableOverview from "@/components/TableOverview";
 import BookATableForm from "@/components/BookATableForm";
 import Form from "next/form";
 import { Button } from "@/components/ui/button";
+import createReservation from "@/app/actions/actions";
 
 interface NightclubEvent {
   id: number;
@@ -57,7 +58,7 @@ export default async function BookTable({ searchParams }: { searchParams: Promis
     <section className="bg-background">
       <NavBar />
       <SubpageHero title="BOOK TABLE" />
-      <Form action="/book-table">
+      <Form action={createReservation}>
         <TableOverview hasEvent={hasEvent} bookedTables={bookedTables} />
         <SectionSubTitle title="BOOK A TABLE" />
         <BookATableForm events={events} eventId={eventId} table={table} />
