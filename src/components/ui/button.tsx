@@ -13,9 +13,9 @@ const buttonVariants = cva(
         bookNow:
           "bg-active-nav text-secondary-text z-10 opacity-0 group-hover:opacity-100",
         secondary:
-          "bg-linear-160 from-btn-gradient-start to-btn-gradient-end text-secondary-text p-6 transition w-[10em] hover:from-btn-gradient-end hover:to-btn-gradient-end  duration-1000 ease-in-out",
+          "bg-linear-160 from-btn-gradient-start to-btn-gradient-end text-secondary-text p-6 transition w-[10em] hover:from-btn-gradient-end hover:to-btn-gradient-end duration-1000 ease-in-out",
         formButton:
-          "border-y-2 border-x-0 border-white text-secondary-text justify-self-end",
+          "border-y-2 border-x-0 border-white text-secondary-text place-self-end w-[10em]",
         carousel: "bg-black/30 border-2 border-white p-2 text-white",
       },
       size: {
