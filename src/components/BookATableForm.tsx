@@ -40,7 +40,7 @@ const BookATableForm = ({ events, eventId, table }: EventsType) => {
         <EventSelect events={events} eventId={eventId} />
         <FormInput type="tel" name="phone" placeholder="Your Contact Number" />
       </div>
-      <FormTextArea name="comment" placeholder="Your Comment" />
+      <FormTextArea name="content" placeholder="Your Comment" />
     </div>
   );
 };
