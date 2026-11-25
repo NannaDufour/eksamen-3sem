@@ -5,7 +5,7 @@ import TableOverview from "@/components/TableOverview";
 import BookATableForm from "@/components/BookATableForm";
 import Form from "next/form";
 import { Button } from "@/components/ui/button";
-import createReservation from "@/app/actions/actions";
+import {createReservation} from "@/app/actions/actions";
 
 interface NightclubEvent {
   id: number;

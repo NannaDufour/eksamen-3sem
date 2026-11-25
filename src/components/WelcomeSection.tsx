@@ -3,7 +3,7 @@ import SectionTitles from "./SectionTitles";
 
 const WelcomeSection = () => {
   return (
-    <section className="bg-black bg-[url(/bg/pattern_bg.jpg)] pb-30">
+    <section className="bg-background bg-[url(/bg/pattern_bg.jpg)] pb-30">
       <SectionTitles title="WELCOME IN NIGHTCLUB" />
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">

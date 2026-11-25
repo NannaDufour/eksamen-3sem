@@ -1,5 +1,6 @@
 "use server";
 import { revalidatePath } from "next/cache";
+import { contactSchema, reserveTableSchema } from "@/schema/formSchema";
 
 interface NightclubEvent {
   id: number;
@@ -17,14 +18,8 @@ interface NightclubEvent {
   };
 }
 
-const createReservation = async (formData: FormData) => {
-  const name = formData.get("name");
-  const email = formData.get("email");
-  const table = formData.get("table");
-  const guests = formData.get("guests");
-  const eventId = formData.get("eventId");
-  const phone = formData.get("phone");
-
+export const createReservation = async (data: unknown) => {
+  const result = reserveTableSchema.safeParse(data);
   const getEvent = await fetch(`http://localhost:4000/events/${eventId}`, {
     method: "GET",
   });
@@ -37,29 +32,29 @@ const createReservation = async (formData: FormData) => {
     headers: {
       "content-type": "application/json",
     },
-    body: JSON.stringify({
-      name,
-      email,
-      table,
-      guests,
-      eventId: Number(eventId),
-      phone,
-      date,
-    }),
+    body: JSON.stringify({ ...result.data, date }),
   });
   revalidatePath("/book-table");
 };
 
-const sendContactInfo = async (formData: FormData) => {
-  const name = formData.get("name");
-  const email = formData.get("email");
-  const content = formData.get("content");
+export const sendContactInfo = async (data: unknown) => {
+  const result = contactSchema.safeParse(data);
+
+  if (!result.success) {
+    return { success: false, message: "invaldd informations" };
+  }
+
+  const date = new Date().toISOString();
 
   const postContact = await fetch("http://localhost:4000/contact_messages", {
     method: "POST",
     headers: { "content-type": "application/json" },
-    body: JSON.stringify({ name, email, content }),
+    body: JSON.stringify({ ...result.data, date }),
   });
-};
 
-export default createReservation;
+  if (!postContact.ok) {
+    return { success: false, message: "Something went wrong, try again" };
+  }
+
+  return { success: true, message: "Message sent!" };
+};
