@@ -37,9 +37,29 @@ const createReservation = async (formData: FormData) => {
     headers: {
       "content-type": "application/json",
     },
-    body: JSON.stringify({ name, email, table, guests, eventId: Number(eventId), phone, date }),
+    body: JSON.stringify({
+      name,
+      email,
+      table,
+      guests,
+      eventId: Number(eventId),
+      phone,
+      date,
+    }),
   });
   revalidatePath("/book-table");
+};
+
+const sendContactInfo = async (formData: FormData) => {
+  const name = formData.get("name");
+  const email = formData.get("email");
+  const content = formData.get("content");
+
+  const postContact = await fetch("http://localhost:4000/contact_messages", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ name, email, content }),
+  });
 };
 
 export default createReservation;
