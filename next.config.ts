@@ -6,9 +6,8 @@ const nextConfig: NextConfig = {
     dangerouslyAllowLocalIP: true,
     remotePatterns: [
       {
-        protocol: "http",
-        hostname: "localhost",
-        port: "4000",
+        protocol: "https",
+        hostname: "night-club-api-eksamen.onrender.com",
         pathname: "/**",
       },
     ],

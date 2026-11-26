@@ -30,7 +30,7 @@ const NavBar = () => {
     <header className="bg-background h-20 border-y-2 border-active-nav sticky top-0 z-50">
       <figure className="relative before:content-[''] before:absolute before:bg-active-nav before:w-7 before:h-7 before:top-0 before:left-0"></figure>
       <nav className="flex items-center justify-between p-4">
-        <Image src="/logo.png" alt="Logo" width={150} height={150} />
+        <Image src="/Logo.png" alt="Logo" width={150} height={150} />
 
         <button type="button" popoverTarget="burgerMenuPopover" className="max-md:block md:hidden">
           <IoMenu className="text-secondary-text w-10 h-10" />

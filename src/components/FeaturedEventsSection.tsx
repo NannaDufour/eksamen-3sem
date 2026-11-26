@@ -19,7 +19,7 @@ interface NightclubEvent {
 }
 
 const FeaturedEvents = async () => {
-  const response = await fetch("http://localhost:4000/events", {
+  const response = await fetch("https://night-club-api-eksamen.onrender.com/events", {
     method: "GET",
   });
   const events = await response.json();
@@ -31,7 +31,7 @@ const FeaturedEvents = async () => {
         <figure className="group-hover:absolute group-hover:top-0 group-hover:left-0 group-hover:w-20 group-hover:h-20 group-hover:before:content-[''] group-hover:before:absolute group-hover:before:inset-0 group-hover:before:bg-active-nav group-hover:before:z-10 opacity-0 group-hover:opacity-100 -translate-y-10 transition-all duration-300 ease-in group-hover:translate-y-0 z-3"></figure>
         <div className="grid grid-cols-1 col-start-1 row-start-1 group-hover:before:bg-background group-hover:before:content-[''] group-hover:before:absolute group-hover:before:w-full group-hover:before:opacity-50 group-hover:before:inset-0">
           <Image
-            src={`http://localhost:4000${featuredEvent.asset.url}`}
+            src={`https://night-club-api-eksamen.onrender.com${featuredEvent.asset.url}`}
             alt={featuredEvent.asset.alt}
             width={featuredEvent.asset.width}
             height={featuredEvent.asset.height}

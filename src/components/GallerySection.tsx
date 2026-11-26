@@ -2,7 +2,7 @@ import GallerySlider from "./GallerySlider";
 import SectionTitles from "./SectionTitles";
 
 const GallerySection = async () => {
-  const response = await fetch("http://localhost:4000/gallery", {
+  const response = await fetch("https://night-club-api-eksamen.onrender.com/gallery", {
     method: "GET",
   });
 
