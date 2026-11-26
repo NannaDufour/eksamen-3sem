@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { IoMenu, IoCloseSharp } from "react-icons/io5";
+import RollingText from "./RollingText";
 
 const NavBar = () => {
   const pathname = usePathname();
@@ -56,9 +57,9 @@ const NavBar = () => {
             <li key={navItem.navLabel}>
               <Link
                 href={navItem.href}
-                className={` ${linkClass(navItem.href)} hover:text-active-nav hover:before:content-[''] relative hover:before:absolute hover:before:bg-linear-to-r hover:before:from-background hover:before:via-active-nav hover:before:to-background hover:before:w-full hover:before:h-0.5 hover:before:bottom-[-1em] hover:before:left-0`}
+                className={` ${linkClass(navItem.href)} hover:text-active-nav hover:before:content-[''] relative hover:before:absolute hover:before:bg-linear-to-r hover:before:from-background hover:before:via-active-nav hover:before:to-background hover:before:w-full hover:before:h-0.5 hover:before:bottom-[-1em] hover:before:left-0 group`}
               >
-                {navItem.navLabel}
+                <RollingText navLabel={navItem.navLabel} />
               </Link>
             </li>
           ))}
