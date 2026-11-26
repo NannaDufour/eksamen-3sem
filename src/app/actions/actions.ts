@@ -25,14 +25,14 @@ const createReservation = async (formData: FormData) => {
   const eventId = formData.get("eventId");
   const phone = formData.get("phone");
 
-  const getEvent = await fetch(`http://localhost:4000/events/${eventId}`, {
+  const getEvent = await fetch(`https://night-club-api-eksamen.onrender.com/events/${eventId}`, {
     method: "GET",
   });
   const event: NightclubEvent = await getEvent.json();
 
   const date = event.doorsOpen;
 
-  const postReservation = await fetch("http://localhost:4000/reservations", {
+  const postReservation = await fetch("https://night-club-api-eksamen.onrender.com/reservations", {
     method: "POST",
     headers: {
       "content-type": "application/json",
@@ -55,7 +55,7 @@ const sendContactInfo = async (formData: FormData) => {
   const email = formData.get("email");
   const content = formData.get("content");
 
-  const postContact = await fetch("http://localhost:4000/contact_messages", {
+  const postContact = await fetch("https://night-club-api-eksamen.onrender.com/contact_messages", {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify({ name, email, content }),
