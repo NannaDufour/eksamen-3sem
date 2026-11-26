@@ -15,6 +15,7 @@ import {
 
 type GalleryImage = {
   id: number;
+  description: string;
   asset: {
     url: string;
     width: number;
@@ -106,25 +107,15 @@ const GallerySlider = ({ images }: GallerySliderProps) => {
                     <Image
                       src={`http://localhost:4000${image.asset.url}`}
                       alt={image.asset.alt}
-                      width={800}
-                      height={500}
+                      width={image.asset.width}
+                      height={image.asset.height}
                       className="w-full max-h-[45vh] object-cover"
                     />
 
                     <div className="flex flex-col gap-4 bg-black p-6 text-white md:p-8">
                       <h5>NIGHT CLUB PARTY</h5>
-                      <p className="text-primary-text">
-                        Lorem ipsum dolor sit amet consectetur adipiscing elit.
-                        Quisque faucibus ex sapien vitae pellentesque sem
-                        placerat. In id cursus mi pretium tellus duis convallis.
-                        Tempus leo eu aenean sed diam urna tempor. Pulvinar
-                        vivamus fringilla lacus nec metus bibendum egestas.
-                        Iaculis massa nisl malesuada lacinia integer nunc
-                        posuere. Ut hendrerit semper vel class aptent taciti
-                        sociosqu. Ad litora torquent per conubia nostra inceptos
-                        himenaeos.
-                      </p>
-                      <Button variant="default" className="self-end">
+                      <p className="text-primary-text">{image.description}</p>
+                      <Button variant="formButton" className="self-end h-10">
                         READ MORE
                       </Button>
                     </div>
