@@ -1,11 +1,6 @@
 import NavBar from "@/components/NavBar";
 import SubpageHero from "@/components/SubpageHero";
-import SectionSubTitle from "@/components/SectionSubTitle";
-import TableOverview from "@/components/TableOverview";
-import BookATableForm from "@/components/BookATableForm";
-import Form from "next/form";
-import { Button } from "@/components/ui/button";
-import createReservation from "@/app/actions/actions";
+import BookingForm from "@/components/BookingForm";
 
 interface NightclubEvent {
   id: number;
@@ -58,14 +53,7 @@ export default async function BookTable({ searchParams }: { searchParams: Promis
     <section className="bg-background">
       <NavBar />
       <SubpageHero title="BOOK TABLE" />
-      <Form action={createReservation}>
-        <TableOverview hasEvent={hasEvent} bookedTables={bookedTables} />
-        <SectionSubTitle title="BOOK A TABLE" />
-        <BookATableForm events={events} eventId={eventId} table={table} />
-        <Button variant="formButton" size="formButton">
-          Reserve
-        </Button>
-      </Form>
+      <BookingForm hasEvent={hasEvent} events={events} bookedTables={bookedTables} eventId={eventId} table={table} />
     </section>
   );
 }
