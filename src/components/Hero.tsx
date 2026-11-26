@@ -18,7 +18,7 @@ const Hero = () => {
   });
 
   return (
-    <section className="full-bleed grid bg-black overflow-hidden">
+    <section className="full-bleed grid bg-background overflow-hidden">
       {heroImg !== null && (
         <Image
           className="col-start-1 row-start-1 w-full h-[30em] md:h-full opacity-35 object-cover scale-130"

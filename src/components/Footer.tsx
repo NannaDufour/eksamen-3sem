@@ -9,7 +9,7 @@ const Footer = () => {
       className="relative w-full 
     bg-[url('/bg/footerbg.jpg')] bg-cover bg-center
     before:content-[''] before:absolute before:inset-0
-    before:bg-black/90 before:z-0"
+    before:bg-background/90 before:z-0"
     >
       <div className="relative z-10 row-start-1 grid grid-cols-12 gap-10 pt-20 pb-20">
         <Image

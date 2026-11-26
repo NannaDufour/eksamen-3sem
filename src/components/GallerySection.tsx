@@ -9,7 +9,7 @@ const GallerySection = async () => {
   const images = await response.json();
 
   return (
-    <section className="full-bleed bg-black bg-[url(/bg/pattern_bg.jpg)]">
+    <section className="full-bleed bg-background bg-[url(/bg/pattern_bg.jpg)]">
       <SectionTitles title="NIGHT CLUB GALLERY" />
       <GallerySlider images={images} />
     </section>
