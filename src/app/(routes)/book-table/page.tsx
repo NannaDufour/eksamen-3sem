@@ -36,7 +36,7 @@ interface ReservationType {
 export default async function BookTable({ searchParams }: { searchParams: Promise<{ eventId?: string; table?: string }> }) {
   const { eventId, table } = await searchParams;
 
-  const getEvents = await fetch("http://localhost:4000/events", {
+  const getEvents = await fetch("https://night-club-api-eksamen.onrender.com/events", {
     method: "GET",
   });
   const events: NightclubEvent[] = await getEvents.json();
@@ -44,7 +44,7 @@ export default async function BookTable({ searchParams }: { searchParams: Promis
   let bookings: ReservationType[] = [];
 
   if (eventId) {
-    const getBookings = await fetch(`http://localhost:4000/reservations?eventId=${eventId}`, {
+    const getBookings = await fetch(`https://night-club-api-eksamen.onrender.com/reservations?eventId=${eventId}`, {
       method: "GET",
     });
     bookings = await getBookings.json();
