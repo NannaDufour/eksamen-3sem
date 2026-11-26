@@ -20,7 +20,7 @@ interface NightclubEvent {
 
 export const createReservation = async (data: unknown) => {
   const result = reserveTableSchema.safeParse(data);
-  const getEvent = await fetch(`http://localhost:4000/events/${eventId}`, {
+  const getEvent = await fetch(`https://night-club-api-eksamen.onrender.com/${eventId}`, {
 const createReservation = async (formData: FormData) => {
   const name = formData.get("name");
   const email = formData.get("email");
