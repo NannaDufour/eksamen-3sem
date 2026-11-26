@@ -9,15 +9,25 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-background/30 text-secondary-text ring-inset ring-2 ring-white/30 p-6 w-[10em]",
+          "relative bg-background/30 text-secondary-text p-6 w-[10em] border-2 border-white/20 " +
+          "before:content-[''] before:absolute before:-inset-0.5 before:pointer-events-none " +
+          "before:border-t-2 before:border-r-2 before:border-white before:mask-radial-at-top-right before:mask-radial-to-30% ",
+
         bookNow:
           "bg-active-nav text-secondary-text z-10 opacity-0 group-hover:opacity-100",
+
         secondary:
-          "bg-linear-160 from-btn-gradient-start to-btn-gradient-end text-secondary-text p-6 transition w-[10em] hover:from-btn-gradient-end hover:to-btn-gradient-end duration-1000 ease-in-out",
+          "relative bg-linear-160 from-btn-gradient-start to-btn-gradient-end text-secondary-text p-6 transition w-[10em] border-2 bg-clip-border " +
+          "hover:from-btn-gradient-end hover:to-btn-gradient-end duration-1000 ease-in-out " +
+          "bg-origin-border before:content-[''] before:absolute before:-inset-0.5 before:pointer-events-none " +
+          "before:border-t-2 before:border-r-2 before:border-white/80 before:mask-radial-at-top-right before:mask-radial-to-30% ",
+
         formButton:
           "border-y-2 border-x-0 border-white text-secondary-text place-self-end w-[10em]",
+
         carousel: "bg-black/30 border-2 border-white p-2 text-white",
       },
+
       size: {
         default:
           "h-8 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",

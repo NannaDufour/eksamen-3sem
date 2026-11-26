@@ -9,6 +9,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 
 type GalleryImage = {
   id: number;
+  description: string;
   asset: {
     url: string;
     width: number;
@@ -65,17 +66,20 @@ const GallerySlider = ({ images }: GallerySliderProps) => {
               {images.map((image) => (
                 <CarouselItem key={image.id}>
                   <div className="mx-auto flex max-h-[90vh] w-full max-w-4xl flex-col overflow-y-auto">
-                    <Image src={`https://night-club-api-eksamen.onrender.com${image.asset.url}`} alt={image.asset.alt} width={800} height={500} className="w-full max-h-[45vh] object-cover" />
+                    <Image
+                      src={`https://night-club-api-eksamen.onrender.com${image.asset.url}`}
+                      alt={image.asset.alt}
+                      width={image.asset.width}
+                      height={image.asset.height}
+                      className="w-full max-h-[45vh] object-cover"
+                    />
 
                     <div className="flex flex-col gap-4 bg-black p-6 text-white md:p-8">
+                        <Image src={`https://night-club-api-eksamen.onrender.com${image.asset.url}`} alt={image.asset.alt} width={800} height={500} className="w-full max-h-[45vh] object-cover" />
                       <h5>NIGHT CLUB PARTY</h5>
-                      <p className="text-primary-text">
-                        Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus
-                        fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
-                      </p>
-                      <Button variant="default" className="self-end">
-                        READ MORE
-                      </Button>
+                      <p className="text-primary-text">{image.description}</p>
+                      <Button variant="formButton" className="self-end h-10">
+                  
                     </div>
                   </div>
                 </CarouselItem>
