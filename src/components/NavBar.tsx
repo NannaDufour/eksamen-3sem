@@ -17,13 +17,17 @@ const NavBar = () => {
 
   const linkClass = (href: string) => {
     if (href === "/") {
-      return href === pathname
-        ? "text-active-nav before:content-[''] relative before:absolute before:bg-linear-to-r before:from-background before:via-active-nav before:to-background before:w-full before:h-0.5 md:before:bottom-[-1em] max-md:before:bottom-[-0.5em] before:left-0"
-        : "text-secondary-text";
+      return href === pathname ? "text-active-nav" : "text-secondary-text";
     } else {
-      return pathname.startsWith(href)
-        ? "text-active-nav before:content-[''] relative before:absolute before:bg-linear-to-r before:from-background before:via-active-nav before:to-background before:w-full before:h-0.5 md:before:bottom-[-1em] max-md:before:bottom-[-0.5em] before:left-0"
-        : "text-secondary-text";
+      return pathname.startsWith(href) ? "text-active-nav" : "text-secondary-text";
+    }
+  };
+
+  const activePage = (href: string) => {
+    if (href === "/") {
+      return href === pathname ? "page" : undefined;
+    } else {
+      return pathname.startsWith(href) ? "page" : undefined;
     }
   };
 
@@ -52,13 +56,10 @@ const NavBar = () => {
           </ul>
         </div>
 
-        <ul className="max-md:hidden md:flex text-secondary-text gap-7 font-semibold">
+        <ul className="max-md:hidden md:flex text-secondary-text gap-7 font-semibold before:content-[''] relative before:absolute before:bg-linear-to-r before:from-background before:via-active-nav before:to-background before:h-0.5 desktop-nav">
           {navItems.map((navItem) => (
             <li key={navItem.navLabel}>
-              <Link
-                href={navItem.href}
-                className={` ${linkClass(navItem.href)} hover:text-active-nav hover:before:content-[''] relative hover:before:absolute hover:before:bg-linear-to-r hover:before:from-background hover:before:via-active-nav hover:before:to-background hover:before:w-full hover:before:h-0.5 hover:before:bottom-[-1em] hover:before:left-0 group`}
-              >
+              <Link href={navItem.href} aria-current={activePage(navItem.href)} className={` ${linkClass(navItem.href)} group`}>
                 <RollingText navLabel={navItem.navLabel} />
               </Link>
             </li>

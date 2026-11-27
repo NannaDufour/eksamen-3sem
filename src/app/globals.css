@@ -105,3 +105,30 @@ figure::after {
 .swipe-text {
   text-box: trim-start cap alphabetic;
 }
+
+.desktop-nav a[aria-current="page"] {
+  anchor-name: --nav-line;
+}
+
+.desktop-nav:has(a:is(:hover, :focus-visible)) a[aria-current="page"]:not(:hover, :focus-visible) {
+  anchor-name: none;
+}
+
+.desktop-nav a:is(:hover, :focus-visible) {
+  anchor-name: --nav-line;
+}
+
+.desktop-nav:has(a:is(:hover, :focus-visible))::before {
+  transition-delay: 0ms;
+}
+
+.desktop-nav::before {
+  position-anchor: --nav-line;
+  left: anchor(left);
+  width: anchor-size(width);
+  top: calc(anchor(bottom) + 0.5em);
+  transition-property: left, width;
+  transition-timing-function: ease-out;
+  transition-duration: 300ms;
+  transition-delay: 200ms;
+}
