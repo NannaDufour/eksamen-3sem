@@ -17,20 +17,25 @@ interface NightclubEvent {
   };
 }
 
-type EventsType = {
+type Props = {
   events: NightclubEvent[];
-  eventId?: string;
-};
+} & React.ComponentProps<"select">;
 
-const EventSelect = ({ eventId, events }: EventsType) => {
+const EventSelect = ({ events, onChange, ...props }: Props) => {
   const router = useRouter();
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    onChange?.(e);
     router.replace(`/book-table?eventId=${e.target.value}`, { scroll: false });
   };
 
   return (
     <div className="relative">
-      <select name="eventId" defaultValue={eventId ?? ""} key={eventId} id="chooseEvent" className="placeholder:text-secondary-text text-secondary-text border px-3 py-6 appearance-none w-full h-full cursor-pointer" onChange={handleChange}>
+      <select
+        {...props}
+        id="chooseEvent"
+        className="placeholder:text-secondary-text text-secondary-text border px-3 py-6 appearance-none w-full h-full cursor-pointer"
+        onChange={handleChange}
+      >
         <option value="">Choose Night</option>
         {events.map((event) => (
           <option key={event.id} value={event.id}>
