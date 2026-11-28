@@ -33,10 +33,12 @@ const GallerySlider = ({ images }: GallerySliderProps) => {
 
   const showImage = (index: number) => {
     setCurrentIndex(index);
+    document.body.style.overflow = "hidden";
   };
 
   const closeImage = () => {
     setCurrentIndex(null);
+    document.body.style.overflow = "";
   };
 
   const gridSpans = [
@@ -49,19 +51,29 @@ const GallerySlider = ({ images }: GallerySliderProps) => {
     "md:col-span-4",
   ];
 
+  const offsets = [
+    { x: -100 },
+    { x: -80 },
+    { x: -60 },
+    { x: -100 },
+    { x: -90 },
+    { x: -70 },
+    { x: -50 },
+  ];
+
   const previewImages = images.slice(0, 7);
 
   return (
     <>
-      <motion.div
-        className="grid grid-cols-12"
-        initial={{ x: -100, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
+      <div className="grid grid-cols-12">
         {previewImages.map((image, index) => (
-          <button
+          <motion.button
             key={image.id}
+            initial={{
+              x: offsets[index].x,
+            }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1 }}
             onClick={() => showImage(index)}
             className={`${gridSpans[index]} col-span-12 group relative overflow-hidden`}
           >
@@ -78,9 +90,9 @@ const GallerySlider = ({ images }: GallerySliderProps) => {
 
               <figure className="absolute bottom-0 right-0 w-20 h-20 opacity-0 duration-200 group-hover:opacity-100 after:content-[''] after:absolute after:inset-0 after:bg-active-nav" />
             </Card>
-          </button>
+          </motion.button>
         ))}
-      </motion.div>
+      </div>
       {currentIndex !== null && (
         <motion.div
           initial={{ opacity: 0 }}
