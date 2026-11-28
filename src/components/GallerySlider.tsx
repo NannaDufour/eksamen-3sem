@@ -73,6 +73,7 @@ const GallerySlider = ({ images }: GallerySliderProps) => {
               x: offsets[index].x,
             }}
             whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
             transition={{ duration: 1 }}
             onClick={() => showImage(index)}
             className={`${gridSpans[index]} col-span-12 group relative overflow-hidden`}
